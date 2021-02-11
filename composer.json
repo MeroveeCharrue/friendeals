@@ -61,12 +61,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "Friendeals\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "Friendeals\\Tests\\": "tests/"
         }
     },
     "replace": {
