@@ -1,0 +1,30 @@
+body {
+    background: #fff;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#header {
+    margin-top: 50px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 3em;
+}
+
+#main {
+    background: #f3ece0;
+    max-width: 1024px;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+}
+
+#content {
+    padding: 1px;
+}
