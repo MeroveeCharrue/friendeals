@@ -2,24 +2,35 @@
 
 namespace Friendeals\Controller;
 
+use Friendeals\Entity\Expense;
+use Friendeals\Form\ExpenseType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/", name="home", methods={"GET","POST"})
      */
-    public function home(): Response
+    public function home(Request $request): Response
     {
-        $joe = 'yo';
+        $expense = new Expense();
+        $expense->setPaymentDate(new \DateTime());
+        $form = $this->createForm(ExpenseType::class, $expense);
+        $form->handleRequest($request);
 
-        return $this->render(
-            'home/home.html.twig',
-            [
-                'hey' => $joe
-            ]
-        );
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($expense);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('home.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 }
