@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block main %}
+    <h1>Yoxx</h1>
+
+    <h1>Expenses list</h1>
+
+    <div class="expenses-box">
+    {% for expense in expenses|reverse %}
+        <div class="expense-ticket">
+            <div>{{ include('expense/_delete_form.html.twig', {button_label: 'x'}) }}</div>
+            <div class="expense-author">{{ expense.author.name|first }}</div>
+            <div class="expense-date">{{ expense.paymentDate|date('d M y') }}</div>
+            <div class="expense-type">{{ expense.paymentType }}</div>
+            <div class="expense-label">{{ expense.label }}</div>
+            <div class="expense-amount">
+                <a href="{{ path('expense_edit', {id: expense.id}) }}">
+                    {{ (expense.amount / 100)|number_format(2, ',', ' ') }} €
+                </a>
+            </div>
+        </div>
+    {% else %}
+        <div class="expense-ticket">
+            <div>no records found</div>
+        </div>
+    {% endfor %}
+    </div>
+
+    <a href="{{ path('home') }}">Back home</a>
+{% endblock %}

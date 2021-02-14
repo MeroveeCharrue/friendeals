@@ -17,6 +17,7 @@ DATABASE_URL="mysql://<user>:<password>@<host>/friendeals?serverVersion=5.7"
 
 Run :
 ```shell
+composer install
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 ```

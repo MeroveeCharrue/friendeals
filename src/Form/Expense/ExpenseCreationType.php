@@ -1,6 +1,6 @@
 <?php
 
-namespace Friendeals\Form;
+namespace Friendeals\Form\Expense;
 
 use Friendeals\Entity\Expense;
 use Friendeals\Entity\Player;
@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ExpenseType extends AbstractType
+class ExpenseCreationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {

@@ -3,7 +3,9 @@
 namespace Friendeals\Controller;
 
 use Friendeals\Entity\Expense;
-use Friendeals\Form\ExpenseType;
+use Friendeals\Form\Expense\AmountEditType;
+use Friendeals\Form\Expense\ExpenseCreationType;
+use Friendeals\Repository\ExpenseRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +20,7 @@ class HomeController extends AbstractController
     {
         $expense = new Expense();
         $expense->setPaymentDate(new \DateTime());
-        $form = $this->createForm(ExpenseType::class, $expense);
+        $form = $this->createForm(ExpenseCreationType::class, $expense);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -31,6 +33,18 @@ class HomeController extends AbstractController
 
         return $this->render('home.html.twig', [
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/expenses", name="expenses_last", methods={"GET"})
+     */
+    public function lastExpenses(ExpenseRepository $expenseRepository): Response
+    {
+        $expenses = $expenseRepository->findLastExpenses();
+
+        return $this->render('last_expenses.html.twig', [
+            'expenses' => $expenses
         ]);
     }
 }

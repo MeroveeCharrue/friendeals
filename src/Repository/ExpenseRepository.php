@@ -19,22 +19,18 @@ class ExpenseRepository extends ServiceEntityRepository
         parent::__construct($registry, Expense::class);
     }
 
-    // /**
-    //  * @return Expense[] Returns an array of Expense objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+      * @return Expense[]
+      */
+    public function findLastExpenses(): array
     {
         return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
+            ->orderBy('e.paymentDate', 'desc')
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Expense

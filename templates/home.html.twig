@@ -1,9 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <h1>Yo Joe</h1>
+    <h1>Yoxx</h1>
 
     <h1>Create new Expense</h1>
 
     {{ include('expense/_form.html.twig') }}
+
+    <a href="{{ path('expenses_last') }}">Last expenses</a>
 {% endblock %}
