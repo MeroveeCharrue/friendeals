@@ -1,11 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <h1>Yoxx</h1>
+    <div class="header_link">
+        <a href="{{ path('expenses_last') }}">Show expenses list</a>
+    </div>
 
     <h1>Create new Expense</h1>
 
-    {{ include('expense/_form.html.twig') }}
-
-    <a href="{{ path('expenses_last') }}">Last expenses</a>
+    <div class="creation_form">
+        {{ include('expense/_form.html.twig') }}
+    </div>
 {% endblock %}

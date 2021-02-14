@@ -2,6 +2,7 @@ body {
     background: #1d1b2f;
     margin: 0;
     font-family: sans-serif;
+    font-size: 1.1em;
 }
 
 * {
@@ -17,6 +18,10 @@ body {
     font-size: 3em;
 }
 
+.header_link {
+    text-align: right;
+}
+
 #main {
     background: #f3ece0;
     max-width: 1024px;
@@ -26,7 +31,53 @@ body {
 }
 
 #content {
-    padding: 1px;
+    padding: 20px;
+}
+
+#footer {
+    height: 100px;
+}
+
+form > div > div {
+    display: flex;
+}
+label {
+    width: 170px;
+    padding: 10px 10px 10px 0;
+    text-align: right;
+}
+input,
+select {
+    margin: 5px;
+    font-size: 1em;
+    padding: 2px 10px;
+}
+select {
+    padding: 4px 25px;
+}
+input[type="radio"] {
+    margin-top: 20px;
+}
+
+.form_button {
+    display: block;
+    width: 180px;
+    margin: 20px 0 20px 178px;
+    padding: 7px;
+    border-radius: 8px;
+    border: 1px solid;
+    font-size: 1em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.creation_form,
+.update_form {
+    padding: 40px 0;
+}
+
+.creation_form .form_button {
+    margin-top: 60px;
 }
 
 .expenses-box {
@@ -37,31 +88,46 @@ body {
     position: relative;
     display: flex;
     justify-content: flex-start;
-    padding-right: 80px;
+    padding-right: 90px;
+}
+.expense-ticket:hover {
+    background: #d8cbb4;
 }
 
 .expense-ticket > div {
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
-.expense-date {
-    width: 85px;
-}
-.expense-type {
-    width: 85px;
-}
 .expense-author {
     font-weight: bold;
     text-align: center;
-    width: 25px;
+    width: 40px;
     padding-left: 5px;
     padding-right: 5px;
+    margin-left: 10px;
     color: #c54747;
+}
+.expense-date {
+    width: 110px;
+    text-align: center;
+}
+.expense-type {
+    width: 100px;
+    margin-left: 10px;
 }
 .expense-amount {
     text-align: right;
-    width: 80px;
+    width: 90px;
     position: absolute;
     right: 0;
+    font-weight: bold;
+}
+.expense-amount a {
+    color: black;
+    text-decoration: none;
+}
+.expense-amount a:hover {
+    /*color: #985922;*/
+    color: #c54747;
 }

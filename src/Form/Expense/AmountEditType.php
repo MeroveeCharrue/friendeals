@@ -14,9 +14,9 @@ class AmountEditType extends AbstractType
     {
         $builder
             ->add('amount', MoneyType::class, [
-                'currency' => 'EUR',
+                'currency' => false,
                 'divisor' => 100,
-                'label' => 'cmb?'
+                'label' => '€'
             ])
         ;
     }

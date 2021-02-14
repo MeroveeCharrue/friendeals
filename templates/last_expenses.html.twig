@@ -1,7 +1,9 @@
 {% extends 'layout.html.twig' %}
 
 {% block main %}
-    <h1>Yoxx</h1>
+    <div class="header_link">
+        <a href="{{ path('home') }}">Add new expense</a>
+    </div>
 
     <h1>Expenses list</h1>
 
@@ -25,6 +27,4 @@
         </div>
     {% endfor %}
     </div>
-
-    <a href="{{ path('home') }}">Back home</a>
 {% endblock %}

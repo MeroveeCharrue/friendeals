@@ -5,7 +5,8 @@
 {% block main %}
     <h1>Edit Expense</h1>
 
-    {{ include('expense/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('expenses_last') }}">back to list</a>
+    <div class="update_form">
+        {{ include('expense/_form.html.twig', {'button_label': 'Update'}) }}
+        <a class="form_button" href="{{ path('expenses_last') }}">Cancel</a>
+    </div>
 {% endblock %}

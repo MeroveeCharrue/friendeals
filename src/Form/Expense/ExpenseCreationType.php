@@ -19,7 +19,8 @@ class ExpenseCreationType extends AbstractType
     {
         $builder
             ->add('paymentDate', DateType::class, [
-                'widget' => 'single_text'
+                'widget' => 'single_text',
+                'label' => ' '
             ])
             ->add('paymentType', ChoiceType::class, [
                 'choices' => [
@@ -29,18 +30,20 @@ class ExpenseCreationType extends AbstractType
                     'car' => 'car',
                     'holidays' => 'holidays',
                     'extra' => 'extra'
-                ]
+                ],
+                'label' => ' '
             ])
             ->add('label', TextType::class)
             ->add('amount', MoneyType::class, [
-                'currency' => 'EUR',
+                'currency' => false,
                 'divisor' => 100,
-                'label' => 'cmb?'
+                'label' => '€'
             ])
             ->add('author', EntityType::class, [
                 'class' => Player::class,
                 'choice_label' => 'name',
-                'expanded' => true
+                'expanded' => true,
+                'label' => ' '
             ])
         ;
     }
