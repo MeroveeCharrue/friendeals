@@ -21,7 +21,7 @@ class Expense
 
     /**
      * @Assert\NotBlank
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="date")
      */
     private $paymentDate;
 
