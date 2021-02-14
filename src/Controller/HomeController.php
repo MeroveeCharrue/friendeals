@@ -2,10 +2,12 @@
 
 namespace Friendeals\Controller;
 
+use Friendeals\Entity\Balance;
 use Friendeals\Entity\Expense;
 use Friendeals\Form\Expense\AmountEditType;
 use Friendeals\Form\Expense\ExpenseCreationType;
 use Friendeals\Repository\ExpenseRepository;
+use Friendeals\Service\BalanceService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,7 +18,7 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home", methods={"GET","POST"})
      */
-    public function home(Request $request): Response
+    public function home(Request $request, BalanceService $balanceService): Response
     {
         $expense = new Expense();
         $expense->setPaymentDate(new \DateTime());
@@ -31,8 +33,11 @@ class HomeController extends AbstractController
             return $this->redirectToRoute('home');
         }
 
+        $balances = $balanceService->getCurrentBalance();
+
         return $this->render('home.html.twig', [
             'form' => $form->createView(),
+            'balances' => $balances
         ]);
     }
 

@@ -71,9 +71,13 @@ input[type="radio"] {
     cursor: pointer;
 }
 
+.creation_form form,
+.update_form form {
+    padding-top: 40px;
+}
 .creation_form,
 .update_form {
-    padding: 40px 0;
+    padding-bottom: 40px;
 }
 
 .creation_form .form_button {

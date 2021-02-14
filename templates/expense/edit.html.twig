@@ -3,9 +3,9 @@
 {% block title %}Edit Expense{% endblock %}
 
 {% block main %}
-    <h1>Edit Expense</h1>
-
     <div class="update_form">
+        <h1>Edit Expense</h1>
+
         {{ include('expense/_form.html.twig', {'button_label': 'Update'}) }}
         <a class="form_button" href="{{ path('expenses_last') }}">Cancel</a>
     </div>

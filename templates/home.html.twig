@@ -5,9 +5,19 @@
         <a href="{{ path('expenses_last') }}">Show expenses list</a>
     </div>
 
-    <h1>Create new Expense</h1>
-
     <div class="creation_form">
+        <h1>Create new Expense</h1>
+
         {{ include('expense/_form.html.twig') }}
     </div>
+
+    <div class="balance">
+        <h1>Currently</h1>
+
+        {% for balance in balances %}
+            <p>{{ balance.result }}</p>
+        {% endfor %}
+    </div>
+
+
 {% endblock %}
